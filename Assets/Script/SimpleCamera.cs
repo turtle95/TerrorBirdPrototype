@@ -9,7 +9,7 @@ public class SimpleCamera : MonoBehaviour
     public float speed = 10.0f;
     public float screenEdgeDistance = 5f;
     public Rigidbody rb;
-
+    public float yDownDistance = 15f;
 
 
     private void Update()
@@ -28,11 +28,10 @@ public class SimpleCamera : MonoBehaviour
 
         if (mousePos.y > (Screen.height - screenEdgeDistance))
             movement.y = 1;
-        else if (mousePos.y < screenEdgeDistance)
+        else if (mousePos.y < yDownDistance)
             movement.y = -1;
         else
             movement.y = 0;
-
 
         rb.velocity = new Vector3(movement.x * speed, 0, movement.y * speed);
     }
