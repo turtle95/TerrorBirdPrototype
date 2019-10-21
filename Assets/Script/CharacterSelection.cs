@@ -29,13 +29,13 @@ public class CharacterSelection : MonoBehaviour
                 if (hit.transform.gameObject.GetComponent<Entity>().selected)
                 {
                     hit.transform.gameObject.GetComponent<Entity>().selected = false;
-                    hit.transform.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+                    hit.transform.gameObject.GetComponent<Renderer>().enabled = false;
                     selectedUnits.Remove(hit.transform);
                 }
                 else
                 {
                     hit.transform.gameObject.GetComponent<Entity>().selected = true;
-                    hit.transform.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+                    hit.transform.gameObject.GetComponent<Renderer>().enabled = true;
                     selectedUnits.Add(hit.transform);
                 }
             }
