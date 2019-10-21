@@ -23,6 +23,7 @@ public class Entity : MonoBehaviour
     public string enemyTag = "Enemy";
     public GameObject explosion;
 
+    public float turnForce = 0.2f;
     public void MoveTo(Vector3 targetPos)
     {
         target = targetPos;
@@ -35,7 +36,14 @@ public class Entity : MonoBehaviour
         {
             
             rb.velocity = transform.TransformDirection(moveSpeed);
-            transform.LookAt(target);
+
+            Vector3 targetDelta = target - transform.position;
+
+            float angleDif = Vector3.Angle(transform.forward, targetDelta);
+
+            Vector3 cross = Vector3.Cross(transform.forward, targetDelta);
+
+            rb.AddTorque(cross * angleDif * turnForce);
         }
         else
         {
