@@ -10,6 +10,8 @@ public class SimpleCamera : MonoBehaviour
     public float screenEdgeDistance = 5f;
     public Rigidbody rb;
 
+
+
     private void Update()
     {
         mousePos = Input.mousePosition;
